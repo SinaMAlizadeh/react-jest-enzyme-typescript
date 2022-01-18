@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { fetchData } from "../Api/api";
 type Name = {
   title: string;
   first: string;
@@ -22,21 +23,25 @@ const AsyncAwait = () => {
   }, []);
 
   const getData = async () => {
-    const data = await fetch("https://randomuser.me/api/?results=5")
-      .then((response) => response.json())
-      .then((res) => res);
+    const data = await fetchData();
     setList(data.results);
   };
 
   return (
     <div>
-      {list.map((item, index) => {
-        return (
-          <div key={index} className="list-item">
-            {item?.name?.first}
-          </div>
-        );
-      })}
+      <div>
+        {list.map((item, index) => {
+          return (
+            <div
+              key={index}
+              data-testid={`list-item-${index}`}
+              className="list-item"
+            >
+              {item?.name?.first}
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };
