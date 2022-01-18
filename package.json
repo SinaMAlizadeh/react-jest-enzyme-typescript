@@ -50,6 +50,7 @@
   "devDependencies": {
     "@types/enzyme": "^3.10.11",
     "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.6"
+    "enzyme-adapter-react-16": "^1.15.6",
+    "jest-watch-typeahead": "^0.6.5"
   }
 }
